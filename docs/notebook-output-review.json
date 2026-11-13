@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "policy": "historical aggregate outputs only; no analysis/model execution",
+  "notebooks": {
+    "projects/smoking-health-eda/notebooks/analysis.ipynb": {
+      "source": "프로젝트/데이터 분석 및 시각화 미니프로젝트/전봉우_(개인)_흡연여부_데이터분석v2_최종.ipynb",
+      "source_sha256": "609837a6bebad8d85fee2e29fbf6cb07a62e6bf32f2ac832c1dce874cf0049eb",
+      "cells": {
+        "portfolio-007": {
+          "sha256": "164ff1a2fa6a7992b571868636388a3bd8b0c136e41b673b5a4b975991cb874e",
+          "source_cell_index": 7,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "d6ef9f3a873a53ac9552c8c8aa6fc092227a82a8e0882e1f37c457c3ad678995",
+          "execution_count": 4,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        },
+        "portfolio-011": {
+          "sha256": "b43a965d6394014b2af6dc5f4a16e626e87d2cdb5cb668c39f2cb0c30e4eeb58",
+          "source_cell_index": 10,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "686c486e4080c06088d7441f9e0221314a7d1c20a14b36e311535aa488edd141",
+          "execution_count": 6,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-035": {
+          "sha256": "75ccf49f91e5a4b7e547e71780a2406c736e2fcce53f9a0cd5a3aa046d92dc4e",
+          "source_cell_index": 25,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "833aeb5eb896afb4023dcb9549d988ff74f67508d1865f05df65ee069becee4a",
+          "execution_count": 18,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        },
+        "portfolio-057": {
+          "sha256": "ae370c453198ee8320864b7e62987dc3f58352ef6f6e11d1f3c6e9da9988b55c",
+          "source_cell_index": 43,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "9a598f78a814e989c44d6577aa8b92e45a0f93672ada0794e889684ece46ff97",
+          "execution_count": 29,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-059": {
+          "sha256": "70279e59966ccc3ef1020598cea15ddb5c9015add8db8d5e232357618f1197f9",
+          "source_cell_index": 44,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "0250aaae9f3076001626b38a81443dcba92ddba4421df3d9f29cace8268e3399",
+          "execution_count": 30,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "removed two per-row prediction/probability array lines; remaining classification aggregates unchanged",
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-061": {
+          "sha256": "24e8b1aad1137344bd47cff203db2ac3e3ab43471c43ad1e9c422fb30298067c",
+          "source_cell_index": 45,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "8116fd929906541bf1aecf10dfb07630584b65141f726d57d583c13e10bbb170",
+          "execution_count": 45,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        },
+        "portfolio-065": {
+          "sha256": "86551e32a259e21b5aea99d3ae72da4e4818cca9109c1227d5a51f26c7f15886",
+          "source_cell_index": 49,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "81817a494534ba2f831f179c686de49bf9fbe1c44a221fcae6e71980cceba2c8",
+          "execution_count": 53,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        }
+      }
+    },
+    "projects/infertility-prediction/notebooks/analysis.ipynb": {
+      "source": "프로젝트/예측 모델 만들기 미니프로젝트/AH_08_5조_신규 XGBoost + CatBoost 앙상블 실험.ipynb",
+      "source_sha256": "846b7cc5787cbc2ebca21693da3a5521a0a46d2b01d02a4baab1594f16be5938",
+      "cells": {
+        "portfolio-013": {
+          "sha256": "94b109e0c2f110fef8126df33144f4b41fbd45c60e7786bc7c689e8de9cf8dad",
+          "source_cell_index": 18,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "5fd9a95918d93afd1ee1e5f7da45e628e31f5885896c6883bbfe2a7166df419e",
+          "execution_count": 19,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-015": {
+          "sha256": "dcd59b7abd64f6094a2bcc81724cf32c537056cad689b0bff95838b33ca214c8",
+          "source_cell_index": 19,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "8164fbff8e271d41392d7fdb071d10fc1addda3f1b089fd3f01466a2130e1ab9",
+          "execution_count": 20,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-017": {
+          "sha256": "6576aee748ce20ad545eb84225fcf6780ab8fae416295c0ddc1b47350dc21fe2",
+          "source_cell_index": 23,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "3c43160fb04083d803278887868dca896d041899914d392433fd8efb8f35492e",
+          "execution_count": 21,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-033": {
+          "sha256": "6d751830b2f60a0a8dfc3c893f9c296d1952ee1d276e058bff2e96865c2ab7df",
+          "source_cell_index": 42,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "217e2fab3c6647718748e508b94c27a3f7bb40a56704a5b06e88b094730e34b2",
+          "execution_count": 29,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-035": {
+          "sha256": "22e7d132d58bed53becf249c4f956327dd97bab359383221f307d157e5b113f3",
+          "source_cell_index": 44,
+          "source_output_indexes": [
+            8
+          ],
+          "source_outputs_sha256": "4e6803e846af95b6b6615331761241c62ac7a8fa80b1bc1f9e7d136d4676e993",
+          "execution_count": 30,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-043": {
+          "sha256": "cae92224861abf09ba424626b4e410785cdb32f24f71ce8c667be92ff96ce847",
+          "source_cell_index": 52,
+          "source_output_indexes": [
+            10
+          ],
+          "source_outputs_sha256": "5946f2503ca4d5df895e2d2a61f7ea8b565ebdbeba8956843f51e0e4bf3c6de5",
+          "execution_count": 35,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-045": {
+          "sha256": "4153840de093d714d1b9e47b4d479293bb39ec139abd8caefba74063b032c114",
+          "source_cell_index": 54,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "a0191503d04cb26ff9b2333a9860183dd7c28ea5e552970650e6661ea5710760",
+          "execution_count": 36,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        },
+        "portfolio-047": {
+          "sha256": "f1a6163b9652afbe53d08b884381b60ff114e2d4ea2e5bb5092377a871e8d123",
+          "source_cell_index": 56,
+          "source_output_indexes": [
+            0,
+            1,
+            2
+          ],
+          "source_outputs_sha256": "2a2dbfd47207b1d47c6f1b652df9db630fa074d56845695482ba74bebfca3d84",
+          "execution_count": 37,
+          "output_count": 3,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-051": {
+          "sha256": "ba2fc4a66f47076f06e100140f99f6add9310a46320849105a2f04a701140c95",
+          "source_cell_index": 59,
+          "source_output_indexes": [
+            0
+          ],
+          "source_outputs_sha256": "becf22d38c473614beb7671f265f16f010c15b6a2fba193164fc476549e51261",
+          "execution_count": 39,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        },
+        "portfolio-053": {
+          "sha256": "f4fd457ae0bbec4998a468b9bdfac9afcae72882c58a27c38525274b23caea38",
+          "source_cell_index": 60,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "214274c280860834097decf7a1d6c768e91d05229243953f1ff18557bfbe5636",
+          "execution_count": 40,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": []
+        }
+      }
+    },
+    "projects/smartdur-medication-alert/notebooks/analysis.ipynb": {
+      "source": "딥러닝/미니프로젝트/modeling_analysis/TM5_모델링_실행.ipynb",
+      "source_sha256": "5df281d1af64f52ecb7d73c3ff22b8d146e548a273829714eb15f50c372f8e4a",
+      "cells": {
+        "portfolio-005": {
+          "sha256": "1dbea12e522bae40cdff76f555e660fdfbd41aa0d7b9c6a716f10e9dc8cfa704",
+          "source_cell_index": 6,
+          "source_output_indexes": [
+            21
+          ],
+          "source_outputs_sha256": "d704b32740670d42eec0c4028b864281aa69f4dd38612a5cd5451a5ecbf0a72b",
+          "execution_count": 2,
+          "output_count": 1,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-009": {
+          "sha256": "4e4e04f30df684834418c232ca6d35d6ade8f005dbe18d1e0ffa699fa1654f75",
+          "source_cell_index": 10,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "705e321dcedd930945c00c18eddbd708470d7317d16a0dacfd31a2a26018a6d0",
+          "execution_count": 4,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "saved aggregate Plotly trace arrays rendered as static PNG; no model execution",
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-011": {
+          "sha256": "a96eabc7294823549401e2b5522cf08375948a6cec304fdd094400fc2234d821",
+          "source_cell_index": 12,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "e3652efa868d95845bbc10115dff7c27b42cf619ca1d419a97a4d14c65012970",
+          "execution_count": 5,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "saved aggregate Plotly trace arrays rendered as static PNG; no model execution",
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        },
+        "portfolio-013": {
+          "sha256": "0711332d2135724c85891d3ea1fe9654e46b4ab893da55371c3fb7238516325f",
+          "source_cell_index": 14,
+          "source_output_indexes": [
+            0,
+            1
+          ],
+          "source_outputs_sha256": "15b2bcfd6f8d17c4572b0b72fad26543f94d7e4c529fa120ac68470fc0b8d0c2",
+          "execution_count": 6,
+          "output_count": 2,
+          "review": "aggregate statistics, model evaluation or aggregate chart; no patient rows",
+          "transformations": [
+            "saved aggregate Plotly trace arrays rendered as static PNG; no model execution",
+            "retained table HTML only; removed Colab interactive controls/scripts"
+          ]
+        }
+      }
+    }
+  }
+}

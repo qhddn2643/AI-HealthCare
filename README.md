@@ -6,13 +6,19 @@
 
 | 프로젝트 | 문제와 방법 | 코드 | 기록된 결과 |
 |---|---|---|---|
-| [흡연 건강검진 EDA](projects/smoking-health-eda/) | 흡연 여부에 따른 건강 지표 탐색, 결측치 처리, Welch t-test, 보조 로지스틱 회귀 | [Notebook](projects/smoking-health-eda/notebooks/analysis.ipynb) | 개인 노트북의 집계 차트 보존. 모델 점수는 재검증 전으로 미기재 |
+| [흡연 건강검진 EDA](projects/smoking-health-eda/) | 흡연 여부에 따른 건강 지표 탐색, 결측치 처리, Welch t-test, 보조 로지스틱 회귀 | [Notebook](projects/smoking-health-eda/notebooks/analysis.ipynb) | 저장된 통계표·집계 그래프·보조 분류 정확도 0.699 (결측치 대체의 누수 한계 있음) |
 | [난임 예측](projects/infertility-prediction/) | 시술 정보로 임신 성공 여부 예측, fold 내부 전처리, XGBoost·CatBoost 비교 | [Notebook](projects/infertility-prediction/notebooks/analysis.ipynb) | 과거 CV 평균 ROC-AUC: XGB 0.738193, CatBoost 0.737818, 평균 앙상블 0.738298 |
 | [SmartDUR](projects/smartdur-medication-alert/) | 중요 약물 경고 우선순위 검토, 환자·시간 분리, LR·LightGBM·Keras 비교 | [Notebook](projects/smartdur-medication-alert/notebooks/analysis.ipynb) · [Python 모듈](projects/smartdur-medication-alert/src/) | 과거 LR 개발 OOF AP 0.260, hold-out AP 0.268; hold-out 양성 9건 |
 
 수치는 기존 실행 산출물에 저장된 값입니다. 이번 코드 공개 작업에서는 모델을 재학습하지 않았습니다. 서로 다른 데이터·지표의 점수를 직접 비교하지 않으며, 임상 배포나 의료 효과를 검증한 결과로 해석하지 않습니다.
 
 ![SmartDUR 기록된 AP](projects/smartdur-medication-alert/assets/recorded-ap.svg)
+
+## 노트북 결과 확인
+
+세 프로젝트의 Notebook을 GitHub에서 열면 원본에 저장된 **성능표·통계 요약·집계 그래프**를 바로 볼 수 있습니다. 공개용으로 검토한 21개 코드 셀의 출력 30개를 복원했습니다. 행별 미리보기·개별 예측 배열·개인 경로·설치 로그는 제외했습니다.
+
+이 결과는 과거 원본 실행의 기록입니다. 이번에 전체 노트북을 재실행한 것은 아니며, 실행 번호도 원본 값을 유지해 현재 셀 순서와 일치하지 않을 수 있습니다. SmartDUR의 Plotly 그래프는 같은 저장 집계 trace를 PNG로 변환해 표시합니다. 데이터 없이 결과를 열람할 수 있지만 재계산에는 로컬 입력과 의존성이 필요합니다. [출력 검토 기록](docs/notebook-output-review.json)에 원본 셀 번호와 검토 해시를 남겼습니다.
 
 ## 저장소 구성
 
@@ -89,7 +95,7 @@ git status --short
 git diff --check
 ```
 
-공개 검사 도구는 Git index에 포함될 파일을 검사합니다. 변경을 stage한 뒤 실행하면 다음 커밋 후보를 확인할 수 있습니다.
+공개 검사 도구는 Git index에 포함될 파일을 검사합니다. 검토 기록과 해시가 일치하는 집계 출력만 허용하며 새 출력이나 변경된 출력은 재검토 전까지 거부합니다. 변경을 stage한 뒤 실행하면 다음 커밋 후보를 확인할 수 있습니다.
 
 ```powershell
 git switch -c docs/update-portfolio

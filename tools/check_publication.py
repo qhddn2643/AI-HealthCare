@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import ast
+import base64
+import hashlib
 import json
 import re
 import subprocess
@@ -18,7 +20,13 @@ SECRETS = [r'gh[pousr]_[A-Za-z0-9]{30,}', r'github_pat_[A-Za-z0-9_]{30,}',
            r'(?i)(?:password|api_key|access_token)\s*=\s*[\'"][^\'"\n]{8,}[\'"]']
 
 
-def inspect_payload(name: str, payload: bytes) -> list[str]:
+def output_digest(cell: dict) -> str:
+    state = {key: cell[key] for key in ['source', 'outputs', 'execution_count']}
+    return hashlib.sha256(json.dumps(state, sort_keys=True, ensure_ascii=False,
+                                    separators=(',', ':')).encode()).hexdigest()
+
+
+def inspect_payload(name: str, payload: bytes, *, output_review: dict | None = None) -> list[str]:
     path = Path(name)
     issues = []
     if path.suffix.lower() in BLOCKED or 'PRIVATE' in name:
@@ -51,10 +59,28 @@ def inspect_payload(name: str, payload: bytes) -> list[str]:
         try:
             nb = json.loads(text)
             assert nb['nbformat'] == 4
+            reviewed = (output_review or {}).get(path.as_posix(), {}).get('cells', {})
             for i, cell in enumerate(nb['cells']):
                 if cell['cell_type'] == 'code':
                     if cell.get('outputs') or cell.get('execution_count') is not None:
-                        issues.append(f'notebook output/execution count: cell {i}')
+                        approval = reviewed.get(cell.get('id'), {})
+                        if approval.get('sha256') != output_digest(cell):
+                            issues.append(f'unreviewed notebook output/execution count: cell {i}')
+                        for output in cell.get('outputs', []):
+                            if output.get('output_type') not in {'stream', 'display_data', 'execute_result'}:
+                                issues.append(f'unsupported notebook output: cell {i}')
+                            data = output.get('data', {})
+                            if set(data) - {'text/plain', 'text/html', 'image/png'}:
+                                issues.append(f'unreviewed notebook MIME: cell {i}')
+                            html = data.get('text/html', '')
+                            html = ''.join(html) if isinstance(html, list) else html
+                            if re.search(r'(?i)<(?:script|iframe|object|embed)\b|\bon\w+\s*=|javascript:|file:', html):
+                                issues.append(f'active notebook HTML: cell {i}')
+                            if 'image/png' in data:
+                                png = data['image/png']
+                                png = ''.join(png) if isinstance(png, list) else png
+                                if not base64.b64decode(png, validate=False).startswith(b'\x89PNG\r\n\x1a\n'):
+                                    issues.append(f'invalid notebook PNG: cell {i}')
                     ast.parse(''.join(cell['source']))
                 if cell.get('attachments'):
                     issues.append(f'notebook attachment: cell {i}')
@@ -75,6 +101,11 @@ def git(*args: str) -> bytes:
 def main() -> int:
     # Index contents (not working-tree files) are the actual next commit candidate.
     issues = []
+    tracked_names = set(git('ls-files', '-z').decode('utf-8').split('\0'))
+    review_path = 'docs/notebook-output-review.json'
+    output_review = {}
+    if review_path in tracked_names:
+        output_review = json.loads(git('show', ':' + review_path)).get('notebooks', {})
     entries = git('ls-files', '-s', '-z').decode('utf-8').split('\0')
     count = 0
     for entry in filter(None, entries):
@@ -83,7 +114,7 @@ def main() -> int:
         if stage != '0' or mode == '120000':
             issues.append((name, ['unmerged entry or symlink']))
             continue
-        found = inspect_payload(name, git('cat-file', 'blob', oid))
+        found = inspect_payload(name, git('cat-file', 'blob', oid), output_review=output_review)
         if found:
             issues.append((name, found))
         count += 1

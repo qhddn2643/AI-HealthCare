@@ -40,7 +40,7 @@ hold-out은 이전에도 조회한 자료라 새로운 독립 외부 검증이 �
 
 ## 실행 방법
 
-공개한 파일은 [실행 Notebook](notebooks/analysis.ipynb), [모델링·평가](src/run_analysis.py), [라벨 감사](src/label_audit.py), [집계 시각화](src/chart_layout.py)입니다. Notebook 출력은 모두 비웠습니다. 원본 데이터는 포함하지 않으며 [패키지 준비 방법](data/README.md)에 따라 직접 확보해야 합니다.
+공개한 파일은 [실행 Notebook](notebooks/analysis.ipynb), [모델링·평가](src/run_analysis.py), [라벨 감사](src/label_audit.py), [집계 시각화](src/chart_layout.py)입니다. Notebook에 원본의 AP/신뢰구간·임계값 평가·모델 간 차이·SHAP 집계 표를 복원했습니다. Plotly 그래프의 저장된 집계 trace를 PNG로 변환해 GitHub에서도 표시합니다. 원본 실행 번호를 유지했으며 이번에 모델을 다시 실행한 결과는 아닙니다. 개별 경고 기록과 경로가 든 실행 로그는 제외했습니다. 원본 데이터는 포함하지 않으며 [패키지 준비 방법](data/README.md)에 따라 직접 확보해야 합니다.
 
 ```powershell
 # 저장소 루트에서 의존성 설치

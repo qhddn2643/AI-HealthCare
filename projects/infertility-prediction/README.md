@@ -38,7 +38,7 @@ XGBoost 3개 시드와 CatBoost를 비교합니다. CatBoost 반복 수는 외�
 
 ## 실행 방법
 
-[분석 Notebook](notebooks/analysis.ipynb)에 팀 모델 비교 코드를 포함했습니다. 개인 절대경로·Colab 마운트·폰트 파일 경로를 제거하고 모든 셀 출력을 비웠습니다. 원본 셀 순서는 유지하며 출처 셀 번호는 metadata에 기록했습니다.
+[분석 Notebook](notebooks/analysis.ipynb)에 팀 모델 비교 코드를 포함했습니다. 개인 절대경로·Colab 마운트·폰트 파일 경로를 제거했습니다. 원본에 저장된 결측/이상치 요약·전처리 비교표·CV/hold-out 성능표·ROC·변수 중요도 그래프를 복원했고 원시 행·예측 배열·경고 로그는 제외했습니다. 저장된 실행 번호를 유지한 과거 결과이며 이번 작업의 재학습 결과가 아닙니다. 원본 셀 순서는 유지하며 출처 셀 번호는 metadata에 기록했습니다.
 
 ```powershell
 # 저장소 루트에서
