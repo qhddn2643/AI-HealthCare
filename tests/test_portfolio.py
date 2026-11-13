@@ -39,7 +39,8 @@ class PublicationTests(unittest.TestCase):
             ast.parse(text)
             self.assertIn('ALLOW_TRAINING = False', text)
             self.assertIn('if not ALLOW_TRAINING:', text)
-            self.assertFalse(publication.inspect_payload(p.as_posix(),p.read_bytes()))
+            review=json.loads((ROOT/'docs/notebook-output-review.json').read_text(encoding='utf-8'))['notebooks']
+            self.assertFalse(publication.inspect_payload(p.relative_to(ROOT).as_posix(),p.read_bytes(),output_review=review))
 
     def test_preserved_bmi_boundaries(self):
         p=ROOT/'projects/smoking-health-eda/notebooks/analysis.ipynb'
@@ -113,6 +114,45 @@ class PublicationTests(unittest.TestCase):
              'reviewed_by':'','reviewed_at':'','evidence_reference':'','review_note':''}
         with self.assertRaisesRegex(ValueError,'case_token'):
             audit.validate_decisions(pd.DataFrame([row]),{'test-case'})
+
+    def test_reviewed_outputs_are_present_and_match_approved_hashes(self):
+        review=json.loads((ROOT/'docs/notebook-output-review.json').read_text(encoding='utf-8'))['notebooks']
+        self.assertEqual(len(review),3)
+        for name,record in review.items():
+            nb=json.loads((ROOT/name).read_text(encoding='utf-8'))
+            populated={c['id']:c for c in nb['cells'] if c['cell_type']=='code' and c.get('outputs')}
+            self.assertEqual(set(populated),set(record['cells']))
+            self.assertTrue(any('image/png' in o.get('data',{}) for c in populated.values() for o in c['outputs']))
+            for key,cell in populated.items():
+                self.assertEqual(publication.output_digest(cell),record['cells'][key]['sha256'])
+                self.assertEqual(cell['execution_count'],record['cells'][key]['execution_count'])
+
+    def test_modified_output_cannot_reuse_review_approval(self):
+        import copy
+        review=json.loads((ROOT/'docs/notebook-output-review.json').read_text(encoding='utf-8'))['notebooks']
+        name=next(iter(review))
+        nb=json.loads((ROOT/name).read_text(encoding='utf-8'))
+        changed=copy.deepcopy(nb)
+        cell=next(c for c in changed['cells'] if c['cell_type']=='code' and c.get('outputs'))
+        cell['outputs'].append({'output_type':'stream','name':'stdout','text':['unreviewed row']})
+        issues=publication.inspect_payload(name,json.dumps(changed).encode(),output_review=review)
+        self.assertTrue(any('unreviewed notebook output' in x for x in issues))
+
+    def test_active_html_is_rejected_even_with_matching_output_hash(self):
+        cell={'id':'fixture','cell_type':'code','source':['x=1'],'execution_count':1,
+              'outputs':[{'output_type':'display_data','metadata':{},'data':{'text/html':['<script>alert(1)</script>']}}]}
+        nb={'nbformat':4,'cells':[cell]}
+        review={'a.ipynb':{'cells':{'fixture':{'sha256':publication.output_digest(cell)}}}}
+        issues=publication.inspect_payload('a.ipynb',json.dumps(nb).encode(),output_review=review)
+        self.assertTrue(any('active notebook HTML' in x for x in issues))
+
+    def test_per_row_prediction_arrays_stay_excluded(self):
+        nb=json.loads((ROOT/'projects/smoking-health-eda/notebooks/analysis.ipynb').read_text(encoding='utf-8'))
+        cell=next(c for c in nb['cells'] if c.get('metadata',{}).get('source_cell_index')==44)
+        text=''.join(''.join(o.get('text',[])) for o in cell['outputs'])
+        self.assertIn('정확도(Accuracy): 0.699',text)
+        self.assertNotIn('예측값 (앞 10개):',text)
+        self.assertNotIn('흡연일 확률 (앞 10개):',text)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 # 저장소 포함 파일 목록
 
-코드 공개 요청을 반영한 40개 파일입니다. Notebook 3개와 SmartDUR Python 모듈 3개를 포함합니다. 원시 입력 데이터·행별 출력·모델은 제외합니다.
+총 41개 파일입니다. Notebook 3개·Python 모듈 3개와 검토된 과거 집계 출력 30개를 포함하며 원시 입력·개별 기록·모델은 제외합니다.
 
 - `.gitattributes`
 - `.gitignore`
@@ -12,6 +12,7 @@
 - `docs/discovery.json`
 - `docs/environment.md`
 - `docs/import-check.json`
+- `docs/notebook-output-review.json`
 - `docs/publication-review.md`
 - `docs/source-manifest.json`
 - `docs/upload-manifest.md`
