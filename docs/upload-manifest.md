@@ -1,6 +1,6 @@
-# Push 후보 파일 목록
+# 저장소 포함 파일 목록
 
-현재 작업 브랜치의 공개 후보 35개입니다. 팀 코드 5개와 원시자료는 제외했습니다.
+코드 공개 요청을 반영한 40개 파일입니다. Notebook 3개와 SmartDUR Python 모듈 3개를 포함합니다. 원시 입력 데이터·행별 출력·모델은 제외합니다.
 
 - `.gitattributes`
 - `.gitignore`
@@ -19,12 +19,17 @@
 - `projects/infertility-prediction/README.md`
 - `projects/infertility-prediction/assets/recorded-metrics.json`
 - `projects/infertility-prediction/data/README.md`
+- `projects/infertility-prediction/notebooks/analysis.ipynb`
 - `projects/infertility-prediction/requirements.txt`
 - `projects/smartdur-medication-alert/README.md`
 - `projects/smartdur-medication-alert/assets/recorded-ap.svg`
 - `projects/smartdur-medication-alert/assets/recorded-metrics.json`
 - `projects/smartdur-medication-alert/data/README.md`
+- `projects/smartdur-medication-alert/notebooks/analysis.ipynb`
 - `projects/smartdur-medication-alert/requirements.txt`
+- `projects/smartdur-medication-alert/src/chart_layout.py`
+- `projects/smartdur-medication-alert/src/label_audit.py`
+- `projects/smartdur-medication-alert/src/run_analysis.py`
 - `projects/smoking-health-eda/README.md`
 - `projects/smoking-health-eda/assets/hypothesis-means.png`
 - `projects/smoking-health-eda/data/README.md`

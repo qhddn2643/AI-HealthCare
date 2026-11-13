@@ -8,8 +8,10 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BLOCKED = {'.csv', '.xlsx', '.xls', '.parquet', '.db', '.zip', '.pdf', '.pptx', '.docx',
-           '.joblib', '.pkl', '.pickle', '.pt', '.pth', '.keras', '.h5', '.npy', '.npz'}
+BLOCKED = {'.csv', '.tsv', '.xlsx', '.xls', '.parquet', '.jsonl', '.ndjson', '.feather',
+           '.arrow', '.db', '.sqlite', '.sqlite3', '.zip', '.gz', '.pdf', '.pptx', '.docx',
+           '.dcm', '.dicom', '.nii', '.joblib', '.pkl', '.pickle', '.pt', '.pth',
+           '.keras', '.h5', '.npy', '.npz'}
 SECRETS = [r'gh[pousr]_[A-Za-z0-9]{30,}', r'github_pat_[A-Za-z0-9_]{30,}',
            r'AKIA[A-Z0-9]{16}', r'sk-(?:proj-)?[A-Za-z0-9_-]{30,}',
            r'-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----',
@@ -21,6 +23,11 @@ def inspect_payload(name: str, payload: bytes) -> list[str]:
     issues = []
     if path.suffix.lower() in BLOCKED or 'PRIVATE' in name:
         issues.append('restricted file type/name')
+    directories = {part.lower() for part in path.parts[:-1]}
+    if 'data' in directories and path.name != 'README.md':
+        issues.append('input data directory')
+    if directories & {'outputs', 'results'}:
+        issues.append('generated output directory')
     if any(x in path.parts for x in ['.venv', '.analysis_deps', '__pycache__']):
         issues.append('environment/cache')
     if path.name.startswith('.env') and path.name != '.env.example':
