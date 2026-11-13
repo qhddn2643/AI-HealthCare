@@ -1,0 +1,200 @@
+{
+  "target": "CPython 3.14.2 Windows x64",
+  "date": "2026-11-13",
+  "packages": [
+    {
+      "package": "catboost",
+      "version": "1.2.10",
+      "requires_python": "",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "catboost-1.2.10-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/catboost/1.2.10/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "ipykernel",
+      "version": "7.4.0",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "ipykernel-7.4.0-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/ipykernel/7.4.0/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "joblib",
+      "version": "1.6.0",
+      "requires_python": ">=3.10",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "joblib-1.6.0-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/joblib/1.6.0/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "keras",
+      "version": "3.15.1",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "keras-3.15.1-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/keras/3.15.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "lightgbm",
+      "version": "4.7.0",
+      "requires_python": ">=3.10",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "lightgbm-4.7.0-py3-none-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/lightgbm/4.7.0/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "matplotlib",
+      "version": "3.11.2",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "matplotlib-3.11.2-cp314-cp314t-win_amd64.whl",
+        "matplotlib-3.11.2-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/matplotlib/3.11.2/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "nbclient",
+      "version": "0.11.0",
+      "requires_python": ">=3.10.0",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "nbclient-0.11.0-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/nbclient/0.11.0/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "nbformat",
+      "version": "5.11.1",
+      "requires_python": ">=3.10",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "nbformat-5.11.1-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/nbformat/5.11.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "numpy",
+      "version": "2.3.5",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "numpy-2.3.5-cp314-cp314t-win_amd64.whl",
+        "numpy-2.3.5-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/numpy/2.3.5/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "pandas",
+      "version": "3.0.6",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "pandas-3.0.6-cp314-cp314t-win_amd64.whl",
+        "pandas-3.0.6-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/pandas/3.0.6/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "plotly",
+      "version": "7.1.0",
+      "requires_python": ">=3.8",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "plotly-7.1.0-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/plotly/7.1.0/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.9.1",
+      "requires_python": ">=3.11",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "scikit_learn-1.9.1-cp314-cp314t-win_amd64.whl",
+        "scikit_learn-1.9.1-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "scipy",
+      "version": "1.18.1",
+      "requires_python": ">=3.12",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "scipy-1.18.1-cp314-cp314t-win_amd64.whl",
+        "scipy-1.18.1-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/scipy/1.18.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "seaborn",
+      "version": "0.13.2",
+      "requires_python": ">=3.8",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "seaborn-0.13.2-py3-none-any.whl"
+      ],
+      "source": "https://pypi.org/pypi/seaborn/0.13.2/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "shap",
+      "version": "0.54.1",
+      "requires_python": ">=3.12",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "shap-0.54.1-cp312-abi3-win_amd64.whl",
+        "shap-0.54.1-cp314-cp314t-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/shap/0.54.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "torch",
+      "version": "2.9.1",
+      "requires_python": ">=3.10",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "torch-2.9.1-cp314-cp314t-win_amd64.whl",
+        "torch-2.9.1-cp314-cp314-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/torch/2.9.1/json",
+      "status": "metadata checked; not installed or executed"
+    },
+    {
+      "package": "xgboost",
+      "version": "3.4.1",
+      "requires_python": ">=3.12",
+      "python_3_14_allowed": true,
+      "windows_x64_or_universal_wheel": [
+        "xgboost-3.4.1-py3-none-win_amd64.whl"
+      ],
+      "source": "https://pypi.org/pypi/xgboost/3.4.1/json",
+      "status": "metadata checked; not installed or executed"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "source": "프로젝트/데이터 분석 및 시각화 미니프로젝트/전봉우_(개인)_흡연여부_데이터분석v2_최종.ipynb",
+    "target": "projects/smoking-health-eda/notebooks/analysis.ipynb",
+    "source_sha256": "609837a6bebad8d85fee2e29fbf6cb07a62e6bf32f2ac832c1dce874cf0049eb",
+    "action": "code cells preserved; outputs/template prompts removed; paths/setup adapted; training opt-in",
+    "publication_status": "included"
+  },
+  {
+    "source": "프로젝트/예측 모델 만들기 미니프로젝트/AH_08_5조_신규 XGBoost + CatBoost 앙상블 실험.ipynb",
+    "target": "LOCAL_REVIEW_ONLY/projects/infertility-prediction/notebooks/analysis.ipynb",
+    "source_sha256": "846b7cc5787cbc2ebca21693da3a5521a0a46d2b01d02a4baab1594f16be5938",
+    "action": "code cells preserved; outputs/template prompts removed; paths/setup adapted; training opt-in",
+    "publication_status": "withheld: team source publication permission not verified"
+  },
+  {
+    "source": "딥러닝/미니프로젝트/modeling_analysis/TM5_모델링_실행.ipynb",
+    "target": "LOCAL_REVIEW_ONLY/projects/smartdur-medication-alert/notebooks/analysis.ipynb",
+    "source_sha256": "5df281d1af64f52ecb7d73c3ff22b8d146e548a273829714eb15f50c372f8e4a",
+    "action": "code cells preserved; outputs/template prompts removed; paths/setup adapted; training opt-in",
+    "publication_status": "withheld: team source publication permission not verified"
+  },
+  {
+    "source": "프로젝트/데이터 분석 및 시각화 미니프로젝트/전봉우_(개인)_흡연여부_데이터분석v2_최종.ipynb",
+    "target": "projects/smoking-health-eda/assets/hypothesis-means.png",
+    "source_sha256": "609837a6bebad8d85fee2e29fbf6cb07a62e6bf32f2ac832c1dce874cf0049eb",
+    "action": "aggregate mean comparison chart only, source cell 45",
+    "publication_status": "included"
+  },
+  {
+    "source": "딥러닝/미니프로젝트/modeling_analysis/run_analysis.py",
+    "target": "LOCAL_REVIEW_ONLY/projects/smartdur-medication-alert/src/run_analysis.py",
+    "source_sha256": "fa213bf88d5c89e910e0f1c9f4989f1e1d4cd7defb5bd5e419ec77ca9420df65",
+    "action": "path configuration only; original modeling/audit logic retained; training opt-in",
+    "publication_status": "withheld: team source publication permission not verified"
+  },
+  {
+    "source": "딥러닝/미니프로젝트/modeling_analysis/label_audit.py",
+    "target": "LOCAL_REVIEW_ONLY/projects/smartdur-medication-alert/src/label_audit.py",
+    "source_sha256": "6931fa74fa7516efd5e01a330b06e52ff35c15f2d27d32b89b34905580177f3f",
+    "action": "path configuration only; original modeling/audit logic retained; training opt-in",
+    "publication_status": "withheld: team source publication permission not verified"
+  },
+  {
+    "source": "딥러닝/미니프로젝트/modeling_analysis/chart_layout.py",
+    "target": "LOCAL_REVIEW_ONLY/projects/smartdur-medication-alert/src/chart_layout.py",
+    "source_sha256": "9372a4fd3a4a82fa72d80674ec2af26ef5c828b2bd3dbcbdd58cd9ea137e2ded",
+    "action": "path configuration only; original modeling/audit logic retained; training opt-in",
+    "publication_status": "withheld: team source publication permission not verified"
+  },
+  {
+    "source": "프로젝트/예측 모델 만들기 미니프로젝트/ensemble_xgb_catboost_v3/experiment_v3_20261016_193021.json",
+    "target": "projects/infertility-prediction/assets/recorded-metrics.json",
+    "source_sha256": "e66c531f563224f25f23fe82c967440749a0e27b400608f3bc2e816da556702a",
+    "action": "aggregate metrics only; absolute file paths and prediction files excluded",
+    "publication_status": "included"
+  },
+  {
+    "source": "딥러닝/미니프로젝트/modeling_analysis/results/model_metrics.csv",
+    "target": "projects/smartdur-medication-alert/assets/recorded-metrics.json",
+    "source_sha256": "1749516e3f8e9d13bdff185760e4cb48aac96888ba582b73fb2e6dc267953212",
+    "action": "aggregate metrics only",
+    "publication_status": "included"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "module": "numpy",
+    "status": "import passed",
+    "version": "2.3.5"
+  },
+  {
+    "module": "pandas",
+    "status": "import passed",
+    "version": "3.0.6"
+  },
+  {
+    "module": "scipy",
+    "status": "import passed",
+    "version": "1.18.1"
+  },
+  {
+    "module": "matplotlib",
+    "status": "import passed",
+    "version": "3.11.2"
+  },
+  {
+    "module": "seaborn",
+    "status": "import passed",
+    "version": "0.13.2"
+  },
+  {
+    "module": "sklearn",
+    "status": "import passed",
+    "version": "1.9.1"
+  },
+  {
+    "module": "xgboost",
+    "status": "import passed",
+    "version": "3.4.1"
+  },
+  {
+    "module": "catboost",
+    "status": "import passed",
+    "version": "1.2.10"
+  },
+  {
+    "module": "lightgbm",
+    "status": "import not available",
+    "error_type": "ModuleNotFoundError"
+  },
+  {
+    "module": "keras",
+    "status": "import not available",
+    "error_type": "ModuleNotFoundError"
+  },
+  {
+    "module": "shap",
+    "status": "import not available",
+    "error_type": "ModuleNotFoundError"
+  },
+  {
+    "module": "plotly",
+    "status": "import passed",
+    "version": "7.1.0"
+  },
+  {
+    "module": "nbformat",
+    "status": "import not available",
+    "error_type": "ModuleNotFoundError"
+  }
+]
