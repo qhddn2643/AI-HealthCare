@@ -40,9 +40,24 @@ hold-out은 이전에도 조회한 자료라 새로운 독립 외부 검증이 �
 
 ## 실행 방법
 
-팀 소스의 공개 권한이 자료에서 확인되지 않아 노트북과 분석 모듈은 이 저장소에 포함하지 않았습니다. 경로·출력을 정리한 검토용 복사본은 로컬에 보관했습니다. 현재는 문서·집계 수치·그림을 검토할 수 있습니다. 팀 소스 공개 범위를 확인하고 코드를 추가한 뒤 승인된 입력과 함께 실행 검증이 필요합니다. requirements는 원본 코드 의존성을 기록한 것으로 현재 저장소만으로 재학습할 수 있다는 의미는 아닙니다.
+공개한 파일은 [실행 Notebook](notebooks/analysis.ipynb), [모델링·평가](src/run_analysis.py), [라벨 감사](src/label_audit.py), [집계 시각화](src/chart_layout.py)입니다. Notebook 출력은 모두 비웠습니다. 원본 데이터는 포함하지 않으며 [패키지 준비 방법](data/README.md)에 따라 직접 확보해야 합니다.
 
-원 구현의 결과·검토 기록·모델은 모두 내부용입니다. 연결 토큰은 원자료와 다시 연결할 수 있으므로 익명화로 간주하지 않습니다.
+```powershell
+# 저장소 루트에서 의존성 설치
+python -m pip install -r projects/smartdur-medication-alert/requirements.txt
+cd projects/smartdur-medication-alert
+# 승인된 패키지를 data/package/에 풀고 원 ZIP을 data/package.zip으로 준비합니다.
+# 비용을 확인하고 전체 CPU 학습을 실행할 때만 설정합니다.
+$env:SMARTDUR_ALLOW_TRAINING = '1'
+python src/run_analysis.py
+Remove-Item Env:SMARTDUR_ALLOW_TRAINING
+```
+
+Notebook에서 실행할 때는 해당 프로젝트 또는 notebooks 폴더를 작업 경로로 사용합니다. `ALLOW_TRAINING=True`와 `SMARTDUR_ALLOW_TRAINING=1`을 모두 설정해야 학습합니다. 기본 상태에서는 학습을 중단합니다. Keras는 PyTorch CPU 백엔드를 사용합니다.
+
+패키지 위치는 `SMARTDUR_PACKAGE_DIR`, 검증할 원 ZIP은 `SMARTDUR_ARCHIVE`로 지정할 수 있습니다. 입력 MAIN·MASTER·X35 목록과 원 ZIP의 해시를 확인하며, 라벨 감사에는 패키지의 원본 중재 자료도 필요합니다. 데이터가 없으면 소스·문서·집계 기록만 검토할 수 있습니다.
+
+생성 보고서·검토 기록·연결 토큰·개별 예측·모델은 모두 `outputs/`에 저장되어 Git에서 제외됩니다. 연결 토큰은 재연결이 가능해 익명화로 간주하지 않습니다. 이번 작업에서는 입력 자료를 복사하거나 모델을 재학습하지 않았습니다.
 
 ## 사용 기술
 

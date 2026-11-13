@@ -34,7 +34,13 @@ BMI·나이·중성지방 구간을 만들고 나이대별 혈압 평균/시력 
 
 ## 실행 방법
 
-루트 안내대로 의존성과 데이터를 준비한 뒤 `notebooks/analysis.ipynb`를 위에서 아래로 실행합니다. Linux용 폰트 설치·캐시 삭제 셀을 제거하고 Windows 한글 폰트 설정을 적용했습니다. 모델 학습은 `ALLOW_TRAINING=True`가 필요합니다. 공개 복사본의 출력은 비웠으며 원본은 보존했습니다.
+[분석 Notebook](notebooks/analysis.ipynb)의 코드와 [requirements](requirements.txt)를 포함합니다. 루트 안내대로 가상환경을 준비하고 다음 명령으로 의존성을 설치합니다.
+
+```powershell
+python -m pip install -r projects/smoking-health-eda/requirements.txt
+```
+
+[데이터 안내](data/README.md)에 따라 CSV를 로컬에 둔 다음, 해당 프로젝트 또는 notebooks 폴더를 작업 경로로 노트북을 실행합니다. `HEALTHCARE_DATA_DIR`로 별도 입력 위치를 설정할 수 있습니다. Linux용 폰트 설치·캐시 삭제 셀은 제거하고 운영체제별 폰트 설정을 적용했습니다. 보조 모델 학습은 `ALLOW_TRAINING=True`일 때 진행합니다. 모든 셀 출력은 비웠으며 집계 차트만 assets에 보존했습니다. CSV·개별 기록·새 실행 출력은 공개하지 않습니다.
 
 ## 사용 기술
 

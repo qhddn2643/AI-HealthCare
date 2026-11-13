@@ -52,13 +52,67 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(scope['categorize_bmi'](25),'1단계 비만')
         self.assertEqual(scope['categorize_bmi'](35),'3단계 비만')
 
-    def test_unapproved_team_sources_are_not_public(self):
+    def test_input_and_generated_data_are_rejected(self):
+        self.assertIn('input data directory', publication.inspect_payload('projects/demo/data/records.json', b'{}'))
+        self.assertIn('generated output directory', publication.inspect_payload('projects/demo/outputs/report.html', b'<html>'))
+        self.assertFalse(publication.inspect_payload('projects/demo/data/README.md', b'# Data instructions'))
+
+    def test_all_project_sources_are_published_without_data(self):
         manifest=json.loads((ROOT/'docs/source-manifest.json').read_text(encoding='utf-8'))
-        withheld=[r for r in manifest if r['publication_status'].startswith('withheld')]
-        self.assertEqual(len(withheld),5)
-        for name in ['infertility-prediction','smartdur-medication-alert']:
-            self.assertEqual(list((ROOT/'projects'/name).rglob('*.ipynb')),[])
-            self.assertEqual(list((ROOT/'projects'/name).rglob('*.py')),[])
+        self.assertTrue(all(r['publication_status']=='included' for r in manifest))
+        self.assertEqual(len(list(ROOT.glob('projects/*/notebooks/*.ipynb'))),3)
+        self.assertEqual(len(list((ROOT/'projects/smartdur-medication-alert/src').glob('*.py'))),3)
+        for row in manifest:
+            self.assertTrue((ROOT/row['target']).is_file(),row['target'])
+
+    def test_all_project_modules_compile(self):
+        for p in ROOT.glob('projects/*/src/*.py'):
+            self.assertFalse(publication.inspect_payload(p.relative_to(ROOT).as_posix(),p.read_bytes()))
+
+    def test_smartdur_training_is_explicitly_gated(self):
+        p=ROOT/'projects/smartdur-medication-alert/src/run_analysis.py'
+        tree=ast.parse(p.read_text(encoding='utf-8'))
+        node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='run')
+        import os
+        from unittest.mock import patch
+        scope={'os':os,'keras':None}
+        exec(compile(ast.Module(body=[node],type_ignores=[]),'<isolated training gate>','exec'),scope)
+        with patch.dict(os.environ,{},clear=True):
+            with self.assertRaisesRegex(RuntimeError,'SMARTDUR_ALLOW_TRAINING'):
+                scope['run']()
+
+    def test_readme_links_resolve(self):
+        import re
+        for p in ROOT.rglob('README.md'):
+            if '.git' in p.parts:
+                continue
+            for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
+                if not link.startswith(('https:','http:','#')):
+                    self.assertTrue((p.parent/link.split('#')[0]).exists(),f'{p.name}: {link}')
+
+    def test_label_audit_requires_evidence_for_confirmed_decisions(self):
+        import pandas as pd
+        spec=importlib.util.spec_from_file_location('audit',ROOT/'projects/smartdur-medication-alert/src/label_audit.py')
+        audit=importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+        # Review-state fixture only: no medical measurements or real identifiers.
+        row={'case_token':'test-case','decision_status':'confirmed','y_reviewed':1,
+             'reviewed_by':'','reviewed_at':'','evidence_reference':'','review_note':''}
+        with self.assertRaisesRegex(ValueError,'reviewed_by'):
+            audit.validate_decisions(pd.DataFrame([row]),{'test-case'})
+        row.update(decision_status='pending',y_reviewed=float('nan'))
+        result=audit.validate_decisions(pd.DataFrame([row]),{'test-case'})
+        self.assertTrue(result.y_reviewed.isna().all())
+
+    def test_label_audit_rejects_unknown_case_tokens(self):
+        import pandas as pd
+        spec=importlib.util.spec_from_file_location('audit',ROOT/'projects/smartdur-medication-alert/src/label_audit.py')
+        audit=importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+        row={'case_token':'unknown-test-case','decision_status':'pending','y_reviewed':float('nan'),
+             'reviewed_by':'','reviewed_at':'','evidence_reference':'','review_note':''}
+        with self.assertRaisesRegex(ValueError,'case_token'):
+            audit.validate_decisions(pd.DataFrame([row]),{'test-case'})
 
 
 if __name__ == '__main__':

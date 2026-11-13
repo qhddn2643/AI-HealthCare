@@ -38,7 +38,16 @@ XGBoost 3개 시드와 CatBoost를 비교합니다. CatBoost 반복 수는 외�
 
 ## 실행 방법
 
-팀 소스의 공개 권한이 자료에서 확인되지 않아 노트북은 이 저장소에 포함하지 않았습니다. 개인 절대경로/Colab 마운트/폰트 경로와 출력을 제거한 검토용 복사본은 로컬에 보존했습니다. 현재는 문서와 집계 실행 기록만 볼 수 있습니다. 권한 확인 후 코드를 추가하고 `requirements.txt` 설치, `data/README.md`의 입력 준비, 전체 실행 검증을 진행해야 합니다. requirements는 원본 코드의 의존성 준비용이며 현재 저장소만으로 재학습할 수 있다는 의미는 아닙니다.
+[분석 Notebook](notebooks/analysis.ipynb)에 팀 모델 비교 코드를 포함했습니다. 개인 절대경로·Colab 마운트·폰트 파일 경로를 제거하고 모든 셀 출력을 비웠습니다. 원본 셀 순서는 유지하며 출처 셀 번호는 metadata에 기록했습니다.
+
+```powershell
+# 저장소 루트에서
+python -m pip install -r projects/infertility-prediction/requirements.txt
+```
+
+[데이터 준비](data/README.md)에 따라 `train.csv`, `test.csv`, `sample_submission.csv`를 로컬 `data/`에 둡니다. 다른 위치라면 커널을 실행하기 전 `HEALTHCARE_DATA_DIR` 환경변수를 설정합니다. `notebooks/analysis.ipynb`를 해당 프로젝트 또는 notebooks 폴더를 작업 경로로 열고 위에서 아래로 실행합니다.
+
+`ALLOW_TRAINING=False`가 기본값이며 교차 검증 전에 중단합니다. 사용자가 직접 `True`로 변경하면 원본 5-fold·3시드 비교가 진행되어 시간이 걸릴 수 있습니다. 새 제출 파일과 실행 JSON은 `outputs/` 아래에 저장되어 Git에서 제외됩니다. 데이터·행별 예측·모델은 업로드하지 않습니다. 전체 학습을 이번 공개 작업에서 다시 실행하지 않았습니다.
 
 ## 사용 기술
 
